@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CtaSection } from "@/components/site/cta-section";
@@ -43,6 +44,37 @@ export default function ServicesIndexPage() {
                   Learn more <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+      <Section tone="subtle">
+        <ul className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              src: "/services/services-1.jpg",
+              alt: "TCS crew on a concrete paving placement",
+            },
+            {
+              src: "/services/services-2.jpg",
+              alt: "TCS earthwork and site preparation",
+            },
+            {
+              src: "/services/services-3.jpg",
+              alt: "TCS foundations and drilled footings",
+            },
+          ].map(({ src, alt }) => (
+            <li
+              key={src}
+              className="relative aspect-[4/3] overflow-hidden rounded-lg border border-concrete-200 bg-concrete-100"
+            >
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover"
+              />
             </li>
           ))}
         </ul>
