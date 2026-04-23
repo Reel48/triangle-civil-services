@@ -63,7 +63,14 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-concrete-100 bg-white/90 backdrop-blur">
+    <header
+      className="sticky top-0 z-40 border-b border-concrete-100 bg-white/90 backdrop-blur"
+      style={{
+        paddingTop: "env(safe-area-inset-top)",
+        paddingLeft: "env(safe-area-inset-left)",
+        paddingRight: "env(safe-area-inset-right)",
+      }}
+    >
       <div className="container-page flex h-16 items-center justify-between gap-6 md:h-20">
         <Link
           href="/"
@@ -107,7 +114,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-concrete-800 lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-concrete-800 lg:hidden"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>

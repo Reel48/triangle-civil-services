@@ -34,12 +34,12 @@ function Hero() {
             "radial-gradient(1200px 500px at 80% -10%, rgba(242,230,7,0.18), transparent), radial-gradient(800px 400px at 10% 120%, rgba(45,49,155,0.35), transparent)",
         }}
       />
-      <div className="container-page relative grid gap-10 py-20 md:py-28 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:py-32">
+      <div className="container-page relative grid gap-10 py-16 md:py-28 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:py-32">
         <div>
           <p className="mb-4 text-xs font-semibold tracking-[0.24em] text-accent-400 uppercase">
             Beaumont, TX · Serving TX & LA since {site.founded}
           </p>
-          <h1 className="font-display max-w-3xl text-4xl leading-[1.02] font-semibold md:text-6xl lg:text-7xl">
+          <h1 className="font-display max-w-3xl text-4xl leading-[1.02] font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
             Heavy civil and concrete, self-performed.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-concrete-200 md:text-xl">
@@ -105,7 +105,7 @@ function ClientStrip() {
               key={client.name}
               className="flex items-center justify-center"
             >
-              <div className="relative h-14 w-[140px]">
+              <div className="relative h-12 w-[110px] sm:h-14 sm:w-[140px]">
                 <Image
                   src={client.logo}
                   alt={`${client.name} logo`}

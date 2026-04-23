@@ -23,7 +23,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("py-16 md:py-24", tones[tone], className)}
+      className={cn("py-12 md:py-24", tones[tone], className)}
     >
       <div className="container-page">{children}</div>
     </section>

@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/cn";
 
 const baseField =
-  "block w-full rounded-md border border-concrete-300 bg-white px-3 py-2.5 text-[0.95rem] text-concrete-800 " +
+  "block w-full rounded-md border border-concrete-300 bg-white px-3 py-2.5 text-base sm:text-[0.95rem] text-concrete-800 " +
   "placeholder:text-concrete-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 " +
   "disabled:bg-concrete-50";
 

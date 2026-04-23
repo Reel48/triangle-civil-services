@@ -286,7 +286,7 @@ export function QuoteWizard() {
         <ReviewSummary values={getValues()} files={files} />
       ) : null}
 
-      <div className="mt-2 flex items-center justify-between">
+      <div className="mt-2 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Button
           type="button"
           variant="outline"
@@ -294,12 +294,18 @@ export function QuoteWizard() {
           onClick={onBack}
           disabled={stepIdx === 0}
           aria-label="Previous step"
+          className="w-full sm:w-auto"
         >
           <ArrowLeft className="h-4 w-4" />
           Back
         </Button>
         {isLast ? (
-          <Button type="button" size="lg" onClick={onSubmit}>
+          <Button
+            type="button"
+            size="lg"
+            onClick={onSubmit}
+            className="w-full sm:w-auto"
+          >
             Send bid request
           </Button>
         ) : (
@@ -308,6 +314,7 @@ export function QuoteWizard() {
             size="md"
             onClick={onNext}
             aria-label="Next step"
+            className="w-full sm:w-auto"
           >
             Next
             <ArrowRight className="h-4 w-4" />

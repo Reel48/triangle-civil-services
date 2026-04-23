@@ -140,7 +140,7 @@ export default function ContactPage() {
             src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="block h-[420px] w-full border-0"
+            className="block h-[280px] w-full border-0 md:h-[420px]"
           />
         </div>
         <p className="mt-3 text-sm text-concrete-500">

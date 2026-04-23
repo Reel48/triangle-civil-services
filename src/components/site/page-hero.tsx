@@ -17,7 +17,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "border-b border-concrete-100 bg-concrete-50 py-16 md:py-24",
+        "border-b border-concrete-100 bg-concrete-50 py-12 md:py-24",
         className
       )}
     >
@@ -27,7 +27,7 @@ export function PageHero({
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="font-display max-w-4xl text-4xl leading-[1.05] font-semibold text-concrete-900 md:text-6xl">
+        <h1 className="font-display max-w-4xl text-4xl leading-[1.05] font-semibold text-concrete-900 sm:text-5xl md:text-6xl">
           {title}
         </h1>
         {lead ? (
