@@ -3,7 +3,21 @@ import { Field, Input, Label, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
-import { appleMapsUrl, site } from "@/lib/site";
+import { appleMapsUrl, buildMailto, site } from "@/lib/site";
+
+const generalMailtoHref = buildMailto({
+  subject: "General inquiry — Triangle Civil Services",
+  body: `Hi Triangle Civil Services team,
+
+• Name:
+• Company:
+• Phone:
+• Reason for reaching out:
+
+
+Thanks,
+`,
+});
 
 export const metadata = {
   title: "Contact",
@@ -104,7 +118,7 @@ export default function ContactPage() {
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-accent-600" />
                 <a
-                  href={contact.emailHref}
+                  href={generalMailtoHref}
                   className="hover:text-accent-700"
                 >
                   {contact.email}

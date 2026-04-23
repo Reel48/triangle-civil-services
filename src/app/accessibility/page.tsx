@@ -1,11 +1,27 @@
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
-import { site } from "@/lib/site";
+import { buildMailto, site } from "@/lib/site";
 
 export const metadata = {
   title: "Accessibility",
   description: `Accessibility statement for ${site.name}.`,
 };
+
+const accessibilityMailtoHref = buildMailto({
+  subject: "Accessibility issue on tcsinc.build",
+  body: `Hi Triangle Civil Services team,
+
+I ran into an accessibility barrier on your website. Details below:
+
+• Page URL:
+• What I was trying to do:
+• What happened (or didn't):
+• Device / browser:
+• Assistive technology (if applicable):
+
+Thanks,
+`,
+});
 
 export default function AccessibilityPage() {
   return (
@@ -24,7 +40,7 @@ export default function AccessibilityPage() {
           </p>
           <p>
             Report an issue:{" "}
-            <a href={site.contact.emailHref}>{site.contact.email}</a> or{" "}
+            <a href={accessibilityMailtoHref}>{site.contact.email}</a> or{" "}
             <a href={site.contact.phoneHref}>{site.contact.phone}</a>.
           </p>
         </div>

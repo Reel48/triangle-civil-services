@@ -5,7 +5,7 @@ import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { roles } from "@/content/careers";
-import { site } from "@/lib/site";
+import { buildMailto, site } from "@/lib/site";
 
 export const metadata = {
   title: "Careers",
@@ -13,8 +13,9 @@ export const metadata = {
     "Join a self-performing concrete and civil contractor on the Gulf Coast.",
 };
 
-const hrEmailSubject = "Career inquiry — Triangle Civil Services";
-const hrEmailBody = `Hi Triangle Civil Services HR team,
+const hrMailtoHref = buildMailto({
+  subject: "Career inquiry — Triangle Civil Services",
+  body: `Hi Triangle Civil Services HR team,
 
 I'm interested in learning more about career opportunities with your crew. A quick introduction:
 
@@ -29,11 +30,8 @@ I'm interested in learning more about career opportunities with your crew. A qui
 I've attached my resume. Happy to provide references on request.
 
 Thanks,
-`;
-
-const hrMailtoHref = `${site.contact.emailHref}?subject=${encodeURIComponent(
-  hrEmailSubject,
-)}&body=${encodeURIComponent(hrEmailBody)}`;
+`,
+});
 
 export default function CareersPage() {
   return (
@@ -58,7 +56,7 @@ export default function CareersPage() {
         <p className="mt-3 max-w-2xl text-concrete-500">
           Don&apos;t see the right fit? Send a resume to{" "}
           <a
-            href={site.contact.emailHref}
+            href={hrMailtoHref}
             className="text-accent-600 hover:text-accent-700"
           >
             {site.contact.email}

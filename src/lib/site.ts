@@ -90,6 +90,18 @@ export const appleMapsUrl = `https://maps.apple.com/?address=${encodeURIComponen
   `${site.contact.address.street}, ${site.contact.address.city}, ${site.contact.address.region} ${site.contact.address.postalCode}`,
 )}`;
 
+export function buildMailto({
+  subject,
+  body,
+}: {
+  subject: string;
+  body: string;
+}) {
+  return `${site.contact.emailHref}?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
+}
+
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [

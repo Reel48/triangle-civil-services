@@ -4,7 +4,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { roles } from "@/content/careers";
-import { site } from "@/lib/site";
+import { buildMailto, site } from "@/lib/site";
 import {
   JsonLdScript,
   breadcrumbJsonLd,
@@ -38,6 +38,25 @@ export default async function RolePage({
   const { slug } = await params;
   const role = roles.find((r) => r.slug === slug);
   if (!role) notFound();
+
+  const roleMailtoHref = buildMailto({
+    subject: `Question about the ${role.title} role`,
+    body: `Hi Triangle Civil Services HR team,
+
+I had a question about the ${role.title} position (${role.location}).
+
+A bit about me:
+• Name:
+• Phone:
+• Current location:
+• Relevant experience:
+
+My question:
+
+
+Thanks,
+`,
+  });
 
   return (
     <>
@@ -127,7 +146,7 @@ export default async function RolePage({
             <div className="mt-6 border-t border-concrete-200 pt-4 text-sm">
               <p className="text-concrete-500">Questions?</p>
               <a
-                href={site.contact.emailHref}
+                href={roleMailtoHref}
                 className="font-display mt-1 block text-base font-semibold text-concrete-900 hover:text-accent-600"
               >
                 {site.contact.email}

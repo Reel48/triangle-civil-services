@@ -1,11 +1,26 @@
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
-import { site } from "@/lib/site";
+import { buildMailto, site } from "@/lib/site";
 
 export const metadata = {
   title: "Privacy Policy",
   description: `Privacy policy for ${site.name}.`,
 };
+
+const privacyMailtoHref = buildMailto({
+  subject: "Privacy question — Triangle Civil Services",
+  body: `Hi Triangle Civil Services team,
+
+I had a question about your privacy practices:
+
+• Name:
+• Company (if applicable):
+• My question:
+
+
+Thanks,
+`,
+});
 
 export default function PrivacyPage() {
   return (
@@ -45,7 +60,7 @@ export default function PrivacyPage() {
             Contact
           </h2>
           <p>
-            Privacy questions: <a href={site.contact.emailHref}>{site.contact.email}</a>.
+            Privacy questions: <a href={privacyMailtoHref}>{site.contact.email}</a>.
           </p>
           <p className="text-sm text-concrete-400">
             This is a placeholder policy pending legal review.
