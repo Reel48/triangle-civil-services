@@ -251,36 +251,42 @@ function FeaturedProjects({ featured }: { featured: typeof projects }) {
 
 function SafetyPreview() {
   return (
-    <Section tone="dark">
+    <Section tone="subtle">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
         <div>
-          <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-accent-400 uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-accent-600 uppercase">
             Safety
           </p>
-          <h2 className="font-display text-3xl font-semibold md:text-5xl">
+          <h2 className="font-display text-3xl font-semibold text-concrete-900 md:text-5xl">
             Built to work inside a plant fence.
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-concrete-300">
+          <p className="mt-4 max-w-2xl text-lg text-concrete-600">
             Our safety program is built around the prequalification standards
             of the petrochemical and industrial clients we serve — regularly
             audited, constantly improved, and owned by every crew member.
           </p>
           <div className="mt-8">
-            <ButtonLink href="/safety" variant="cta" size="lg">
+            <ButtonLink href="/safety" size="lg">
               Safety program <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>
         </div>
-        <ul className="grid grid-cols-2 gap-3 rounded-lg border border-white/10 bg-white/5 p-6">
-          {site.safetyPrograms.map((p) => (
-            <li
-              key={p}
-              className="rounded-md bg-white/5 px-4 py-3 text-center font-medium text-concrete-100"
-            >
-              {p}
-            </li>
-          ))}
-        </ul>
+        <div className="rounded-lg border border-concrete-200 bg-white p-6">
+          <p className="text-xs font-semibold tracking-[0.2em] text-concrete-500 uppercase">
+            Prequalification
+          </p>
+          <ul className="mt-4 grid grid-cols-2 gap-2">
+            {site.safetyPrograms.map((p) => (
+              <li
+                key={p}
+                className="flex items-center gap-2 rounded-md border border-concrete-200 bg-white px-3 py-2 text-sm font-medium text-concrete-800"
+              >
+                <ShieldCheck className="h-4 w-4 shrink-0 text-accent-600" />
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </Section>
   );
