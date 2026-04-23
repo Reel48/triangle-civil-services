@@ -3,8 +3,14 @@ import { site } from "@/lib/site";
 
 export function CtaSection() {
   return (
-    <section className="bg-concrete-900 text-white">
-      <div className="container-page flex flex-col gap-8 py-16 md:flex-row md:items-center md:justify-between md:py-20">
+    <section
+      className="relative overflow-hidden text-white"
+      style={{
+        backgroundImage:
+          "linear-gradient(135deg, var(--color-brand-navy-600) 0%, var(--color-brand-blue) 100%)",
+      }}
+    >
+      <div className="container-page relative flex flex-col gap-8 py-16 md:flex-row md:items-center md:justify-between md:py-20">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-semibold md:text-4xl">
             Have a project on the boards?

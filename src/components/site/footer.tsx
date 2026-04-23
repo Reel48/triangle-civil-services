@@ -6,6 +6,7 @@ export function SiteFooter() {
   const { contact } = site;
   return (
     <footer className="bg-concrete-900 text-concrete-200">
+      <div aria-hidden="true" className="h-1 bg-brand-yellow" />
       <div className="container-page grid gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <p className="font-display text-xl font-semibold text-white">
