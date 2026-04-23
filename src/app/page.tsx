@@ -105,13 +105,15 @@ function ClientStrip() {
               key={client.name}
               className="flex items-center justify-center"
             >
-              <Image
-                src={client.logo}
-                alt={`${client.name} logo`}
-                width={160}
-                height={60}
-                className="h-12 w-auto max-w-[160px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
-              />
+              <div className="relative h-14 w-[140px]">
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  fill
+                  sizes="140px"
+                  className="object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+                />
+              </div>
             </li>
           ))}
         </ul>
