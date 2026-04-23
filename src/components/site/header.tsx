@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
@@ -15,11 +16,17 @@ export function SiteHeader() {
       <div className="container-page flex h-16 items-center justify-between gap-6 md:h-20">
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center"
           onClick={() => setOpen(false)}
         >
-          <Logo className="h-8 w-auto" />
-          <span className="sr-only">{site.name}</span>
+          <Image
+            src="/brand/logo.png"
+            alt={site.name}
+            width={2812}
+            height={532}
+            priority
+            className="h-9 w-auto md:h-10"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -92,51 +99,3 @@ export function SiteHeader() {
   );
 }
 
-function Logo({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 240 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="Triangle Civil Services"
-    >
-      {/* Yellow triangle mark */}
-      <path
-        d="M20 4 L36 34 L4 34 Z"
-        fill="#f2e607"
-        stroke="#131d4f"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <text
-        x="20"
-        y="27"
-        textAnchor="middle"
-        fill="#131d4f"
-        style={{
-          fontFamily: "var(--font-display, sans-serif)",
-          fontWeight: 800,
-          fontSize: 10,
-          letterSpacing: "0.04em",
-        }}
-      >
-        TCS
-      </text>
-      {/* Wordmark */}
-      <text
-        x="48"
-        y="28"
-        fill="#131d4f"
-        style={{
-          fontFamily: "var(--font-display, sans-serif)",
-          fontWeight: 700,
-          fontSize: 18,
-          letterSpacing: "-0.01em",
-        }}
-      >
-        Triangle Civil Services
-      </text>
-    </svg>
-  );
-}
