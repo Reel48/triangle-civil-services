@@ -13,6 +13,28 @@ export const metadata = {
     "Join a self-performing concrete and civil contractor on the Gulf Coast.",
 };
 
+const hrEmailSubject = "Career inquiry — Triangle Civil Services";
+const hrEmailBody = `Hi Triangle Civil Services HR team,
+
+I'm interested in learning more about career opportunities with your crew. A quick introduction:
+
+• Name:
+• Phone:
+• Current location:
+• Role(s) I'm interested in:
+• Years of relevant experience:
+• Certifications / licenses (OSHA, TWIC, CDL, etc.):
+• Earliest availability:
+
+I've attached my resume. Happy to provide references on request.
+
+Thanks,
+`;
+
+const hrMailtoHref = `${site.contact.emailHref}?subject=${encodeURIComponent(
+  hrEmailSubject,
+)}&body=${encodeURIComponent(hrEmailBody)}`;
+
 export default function CareersPage() {
   return (
     <>
@@ -21,7 +43,7 @@ export default function CareersPage() {
         title="Build a career, not just the jobsite."
         lead={`We're ${site.headcount}+ strong and scaling toward ${site.capacity}. If you want real work, real mentorship, and real equipment to run, come talk to us.`}
       >
-        <ButtonLink href={site.contact.emailHref} size="lg">
+        <ButtonLink href={hrMailtoHref} size="lg">
           Email HR
         </ButtonLink>
       </PageHero>
