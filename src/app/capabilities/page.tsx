@@ -1,3 +1,4 @@
+import { AwardsStrip } from "@/components/site/awards-strip";
 import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
@@ -69,6 +70,8 @@ export default function CapabilitiesPage() {
           ))}
         </ul>
       </Section>
+
+      <AwardsStrip tone="default" eyebrow="Affiliations" title="Where we stand." lead="Memberships, accreditations, and active prequalifications clients verify up front." />
 
       <CtaSection />
     </>

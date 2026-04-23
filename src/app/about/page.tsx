@@ -1,3 +1,4 @@
+import { AwardsStrip } from "@/components/site/awards-strip";
 import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
@@ -41,7 +42,7 @@ export default function AboutPage() {
           <div className="max-w-prose text-concrete-700">
             <p className="text-lg">
               We started in Beaumont pouring concrete for industrial and
-              commercial clients. Nearly two decades later we're a full
+              commercial clients. Nearly two decades later we&apos;re a full
               heavy-civil contractor — still self-performing foundations,
               paving, drilled shafts, elevated structures, and stormwater work.
             </p>
@@ -102,6 +103,8 @@ export default function AboutPage() {
           ))}
         </ol>
       </Section>
+
+      <AwardsStrip tone="default" />
 
       <CtaSection />
     </>

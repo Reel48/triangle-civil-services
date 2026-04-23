@@ -82,7 +82,7 @@ function Hero() {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs font-medium tracking-[0.18em] text-concrete-400 uppercase">
+      <dt className="text-xs font-medium tracking-[0.18em] text-concrete-300 uppercase">
         {label}
       </dt>
       <dd className="font-display mt-1 text-3xl font-semibold text-white tabular-nums md:text-4xl">

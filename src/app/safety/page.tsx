@@ -30,7 +30,7 @@ export default function SafetyPage() {
             </p>
             <p className="mt-4">
               Our safety program is continuously audited through third-party
-              prequalification networks. The goal isn't paperwork — it's crews
+              prequalification networks. The goal isn&apos;t paperwork — it&apos;s crews
               that go home the way they came in.
             </p>
           </div>

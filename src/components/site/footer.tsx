@@ -11,7 +11,7 @@ export function SiteFooter() {
           <p className="font-display text-xl font-semibold text-white">
             {site.name}
           </p>
-          <p className="mt-1 text-sm text-concrete-400">
+          <p className="mt-1 text-sm text-concrete-300">
             A division of {site.legalName}
           </p>
           <p className="mt-6 max-w-sm text-sm text-concrete-300">
@@ -69,7 +69,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-concrete-800">
-        <div className="container-page flex flex-col gap-3 py-6 text-xs text-concrete-400 md:flex-row md:items-center md:justify-between">
+        <div className="container-page flex flex-col gap-3 py-6 text-xs text-concrete-300 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>

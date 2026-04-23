@@ -6,31 +6,54 @@ import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { services } from "@/content/services";
+import { site } from "@/lib/site";
+import {
+  JsonLdScript,
+  breadcrumbJsonLd,
+  serviceJsonLd,
+} from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = services.find((s) => s.slug === params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
     title: service.title,
     description: service.summary,
+    alternates: { canonical: `${site.url}/services/${service.slug}` },
   };
 }
 
-export default function ServicePage({
+export default async function ServicePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const service = services.find((s) => s.slug === params.slug);
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
   if (!service) notFound();
   const others = services.filter((s) => s.slug !== service.slug);
 
   return (
     <>
+      <JsonLdScript
+        data={[
+          serviceJsonLd(service),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: service.title, path: `/services/${service.slug}` },
+          ]),
+        ]}
+      />
       <PageHero eyebrow="Services" title={service.title} lead={service.summary}>
         <ButtonLink href="/request-a-quote" size="lg">
           Request a quote for this scope

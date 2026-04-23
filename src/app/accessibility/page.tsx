@@ -20,7 +20,7 @@ export default function AccessibilityPage() {
           <p>
             {site.legalName} is committed to making this website accessible in
             line with the Web Content Accessibility Guidelines (WCAG) 2.1 Level
-            AA. If you encounter a barrier using this site, we'd like to know.
+            AA. If you encounter a barrier using this site, we&apos;d like to know.
           </p>
           <p>
             Report an issue:{" "}

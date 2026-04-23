@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { roles } from "@/content/careers";
 import { projects } from "@/content/projects";
 import { services } from "@/content/services";
 import { site } from "@/lib/site";
@@ -36,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/projects/${p.slug}`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
+      priority: 0.5,
+    })),
+    ...roles.map((r) => ({
+      url: `${base}/careers/${r.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
       priority: 0.5,
     })),
   ];

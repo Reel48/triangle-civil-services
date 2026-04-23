@@ -27,7 +27,11 @@ export default function ProjectsPage() {
       />
 
       <Section>
-        <div className="flex flex-wrap gap-2">
+        <div
+          role="radiogroup"
+          aria-label="Filter projects by market"
+          className="flex flex-wrap gap-2"
+        >
           <FilterPill
             active={filter === "All"}
             onClick={() => setFilter("All")}
@@ -108,9 +112,11 @@ function FilterPill({
   return (
     <button
       type="button"
+      role="radio"
+      aria-checked={active}
       onClick={onClick}
       className={cn(
-        "rounded-full border px-4 py-1.5 text-sm font-medium transition-colors",
+        "rounded-full border px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500",
         active
           ? "border-concrete-900 bg-concrete-900 text-white"
           : "border-concrete-200 bg-white text-concrete-700 hover:border-concrete-300"

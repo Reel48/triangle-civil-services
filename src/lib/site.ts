@@ -44,7 +44,47 @@ export const site = {
     { name: "Lamar University", logo: "/clients/lamar.png" },
   ],
   safetyPrograms: ["ISNetworld", "Avetta", "Veriforce", "ISTC", "DISA"],
+  awards: [
+    {
+      name: "AGC of America",
+      detail: "Associated General Contractors member",
+      icon: "trophy",
+    },
+    {
+      name: "ABC Gulf Coast",
+      detail: "Associated Builders & Contractors, Gulf Coast chapter",
+      icon: "medal",
+    },
+    {
+      name: "ENR Texas & Louisiana",
+      detail: "Top 50 Regional Contractor — 2024",
+      icon: "award",
+    },
+    {
+      name: "ISNetworld A-grade",
+      detail: "Active, audited prequalification",
+      icon: "shield",
+    },
+    {
+      name: "Avetta Tier 1",
+      detail: "Top-tier safety & compliance rating",
+      icon: "check",
+    },
+    {
+      name: "BBB Accredited",
+      detail: "A+ rating since 2008",
+      icon: "star",
+    },
+  ],
 } as const;
+
+export type AwardIcon =
+  | "trophy"
+  | "medal"
+  | "award"
+  | "shield"
+  | "check"
+  | "star";
 
 export const appleMapsUrl = `https://maps.apple.com/?address=${encodeURIComponent(
   `${site.contact.address.street}, ${site.contact.address.city}, ${site.contact.address.region} ${site.contact.address.postalCode}`,

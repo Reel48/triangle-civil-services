@@ -11,7 +11,7 @@ export function CtaSection() {
           </h2>
           <p className="mt-3 text-concrete-300 md:text-lg">
             We bid concrete, earthwork, and civil packages across {site.serviceArea.join(" and ")}.
-            Send us the scope and we'll get back the same business day.
+            Send us the scope and we&apos;ll get back the same business day.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row md:flex-col md:items-end">
