@@ -39,8 +39,8 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-display), "Iowan Old Style", "Palatino Linotype",
-    Palatino, Georgia, "Times New Roman", serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   --radius-sm: 4px;
   --radius-md: 6px;
@@ -64,8 +64,7 @@ body {
 
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.015em;
-  font-feature-settings: "ss01", "liga", "calt";
+  letter-spacing: -0.02em;
 }
 
 @utility container-page {

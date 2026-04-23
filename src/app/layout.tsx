@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { site } from "@/lib/site";
@@ -11,11 +11,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const display = Fraunces({
+const display = Archivo({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
