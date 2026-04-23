@@ -62,7 +62,7 @@ function Hero() {
             </ButtonLink>
           </div>
         </div>
-        <dl className="grid grid-cols-2 gap-6 border-t border-concrete-800 pt-10 text-sm lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+        <dl className="grid grid-cols-2 gap-6 border-t border-white/20 pt-10 text-sm lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
           <Stat label="Employees" value={`${site.headcount}+`} />
           <Stat label="Year founded" value={site.founded.toString()} />
           <Stat
@@ -271,11 +271,11 @@ function SafetyPreview() {
             </ButtonLink>
           </div>
         </div>
-        <ul className="grid grid-cols-2 gap-3 rounded-lg border border-concrete-700 bg-concrete-800/50 p-6">
+        <ul className="grid grid-cols-2 gap-3 rounded-lg border border-white/10 bg-white/5 p-6">
           {site.safetyPrograms.map((p) => (
             <li
               key={p}
-              className="rounded-md bg-concrete-900/80 px-4 py-3 text-center font-medium text-concrete-100"
+              className="rounded-md bg-white/5 px-4 py-3 text-center font-medium text-concrete-100"
             >
               {p}
             </li>
