@@ -28,7 +28,7 @@ export function CtaSection() {
             href={site.contact.phoneHref}
             variant="outline"
             size="lg"
-            className="border-brand-navy-700 text-white hover:bg-brand-navy-700"
+            className="border-white text-white hover:bg-white/10"
           >
             Call {site.contact.phone}
           </ButtonLink>
