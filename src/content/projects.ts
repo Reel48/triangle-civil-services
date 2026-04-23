@@ -14,6 +14,8 @@ export type Project = {
   year: number;
   scopeSummary: string;
   scope: string[];
+  image?: string;
+  imageAlt?: string;
   featured?: boolean;
 };
 
@@ -33,6 +35,9 @@ export const projects: Project[] = [
       "Inlet and outlet structures",
       "Erosion control",
     ],
+    image: "/projects/sour-lake-detention-pond.jpg",
+    imageAlt:
+      "Sour Lake detention pond during construction with concrete-lined channels",
     featured: true,
   },
   {
@@ -49,6 +54,8 @@ export const projects: Project[] = [
       "Elevated slabs",
       "Site concrete and hardscape",
     ],
+    image: "/projects/lamar-setzer-center.jpg",
+    imageAlt: "Concrete paving work at the Lamar University Setzer Center",
     featured: true,
   },
   {
@@ -65,6 +72,9 @@ export const projects: Project[] = [
       "Heavy-duty parking paving",
       "Sidewalks and curbs",
     ],
+    image: "/projects/dicks-sporting-goods-beaumont.jpg",
+    imageAlt:
+      "Limestone substrate install for the Dick's Sporting Goods site in Beaumont",
   },
   {
     slug: "beaumont-cancer-center",
@@ -80,6 +90,8 @@ export const projects: Project[] = [
       "Elevated decks",
       "Equipment pads",
     ],
+    image: "/projects/beaumont-cancer-center.jpg",
+    imageAlt: "Concrete work at the Beaumont Cancer Center",
   },
 ];
 

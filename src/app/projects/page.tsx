@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
@@ -62,14 +63,24 @@ export default function ProjectsPage() {
                   className="group flex h-full flex-col overflow-hidden rounded-lg border border-concrete-200 bg-white transition-shadow hover:shadow-md"
                 >
                   <div className="relative aspect-[4/3] bg-concrete-100">
-                    <div
-                      aria-hidden
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(135deg, var(--color-concrete-300) 0%, var(--color-concrete-500) 100%)",
-                      }}
-                    />
+                    {p.image ? (
+                      <Image
+                        src={p.image}
+                        alt={p.imageAlt ?? p.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div
+                        aria-hidden
+                        className="absolute inset-0"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(135deg, var(--color-concrete-300) 0%, var(--color-concrete-500) 100%)",
+                        }}
+                      />
+                    )}
                     <span className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold tracking-wider text-concrete-800 uppercase">
                       {p.market}
                     </span>

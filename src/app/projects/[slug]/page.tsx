@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { CtaSection } from "@/components/site/cta-section";
@@ -61,14 +62,27 @@ export default async function ProjectPage({
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           <div className="max-w-prose">
-            <div
-              className="aspect-[16/9] w-full rounded-lg"
-              aria-hidden
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--color-concrete-300) 0%, var(--color-concrete-600) 100%)",
-              }}
-            />
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-concrete-100">
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt ?? project.title}
+                  fill
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  priority
+                  className="object-cover"
+                />
+              ) : (
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(135deg, var(--color-concrete-300) 0%, var(--color-concrete-600) 100%)",
+                  }}
+                />
+              )}
+            </div>
             <h2 className="font-display mt-10 text-2xl font-semibold text-concrete-900">
               Scope of work
             </h2>
