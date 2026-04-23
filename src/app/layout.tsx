@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Inter } from "next/font/google";
+import { Inter, Public_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { site } from "@/lib/site";
@@ -11,10 +11,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const display = Archivo({
+const display = Public_Sans({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  weight: ["600"],
 });
 
 export const metadata: Metadata = {
