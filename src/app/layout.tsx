@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { site } from "@/lib/site";
@@ -11,11 +11,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const display = Space_Grotesk({
+const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600", "700"],
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
