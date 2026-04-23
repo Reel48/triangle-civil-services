@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { footerNav, site } from "@/lib/site";
-import { ServiceAreaMap } from "./service-area-map";
 
 export function SiteFooter() {
   const { contact } = site;
@@ -41,13 +40,6 @@ export function SiteFooter() {
               </a>
             </li>
           </ul>
-          <div className="mt-6 max-w-sm overflow-hidden rounded-lg border border-concrete-800 bg-concrete-900/60">
-            <ServiceAreaMap className="block h-auto w-full" />
-            <div className="border-t border-concrete-800 px-3 py-2 text-xs text-concrete-400">
-              Serving {site.serviceArea.join(" & ")} · HQ in{" "}
-              {contact.address.city}, {contact.address.region}
-            </div>
-          </div>
         </div>
 
         {footerNav.map((group) => (

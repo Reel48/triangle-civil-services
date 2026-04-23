@@ -12,6 +12,9 @@ export const metadata = {
 
 export default function ContactPage() {
   const { contact } = site;
+  const mapQuery = encodeURIComponent(
+    `${contact.address.street}, ${contact.address.city}, ${contact.address.region} ${contact.address.postalCode}`,
+  );
   return (
     <>
       <PageHero
@@ -109,6 +112,28 @@ export default function ContactPage() {
             </ul>
           </aside>
         </div>
+      </Section>
+
+      <Section className="pt-0">
+        <div className="overflow-hidden rounded-lg border border-concrete-200">
+          <iframe
+            title={`Map to ${site.name} headquarters`}
+            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="block h-[420px] w-full border-0"
+          />
+        </div>
+        <p className="mt-3 text-sm text-concrete-500">
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-accent-700"
+          >
+            Get directions →
+          </a>
+        </p>
       </Section>
     </>
   );
