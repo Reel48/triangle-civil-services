@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, HardHat, ShieldCheck, Truck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
@@ -98,13 +99,19 @@ function ClientStrip() {
         <p className="text-center text-xs font-semibold tracking-[0.2em] text-concrete-500 uppercase">
           Trusted by industrial, commercial, and institutional clients
         </p>
-        <ul className="mt-6 grid grid-cols-2 items-center gap-6 text-center md:grid-cols-3 lg:grid-cols-6">
+        <ul className="mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-10 md:grid-cols-3 lg:grid-cols-6">
           {site.majorClients.map((client) => (
             <li
-              key={client}
-              className="font-display text-lg font-medium text-concrete-400"
+              key={client.name}
+              className="flex items-center justify-center"
             >
-              {client}
+              <Image
+                src={client.logo}
+                alt={`${client.name} logo`}
+                width={160}
+                height={60}
+                className="h-12 w-auto max-w-[160px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+              />
             </li>
           ))}
         </ul>

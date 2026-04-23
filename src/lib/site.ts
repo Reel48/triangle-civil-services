@@ -36,12 +36,12 @@ export const site = {
   ],
   serviceArea: ["Texas", "Louisiana"],
   majorClients: [
-    "ExxonMobil",
-    "Dow Chemical",
-    "Sasol",
-    "Enterprise Products",
-    "Cheniere",
-    "Lamar University",
+    { name: "ExxonMobil", logo: "/clients/exxonmobil.png" },
+    { name: "Dow Chemical", logo: "/clients/dow.svg" },
+    { name: "Sasol", logo: "/clients/sasol.png" },
+    { name: "Enterprise Products", logo: "/clients/enterprise.png" },
+    { name: "Cheniere", logo: "/clients/cheniere.jpg" },
+    { name: "Lamar University", logo: "/clients/lamar.png" },
   ],
   safetyPrograms: ["ISNetworld", "Avetta", "Veriforce", "ISTC", "DISA"],
 } as const;

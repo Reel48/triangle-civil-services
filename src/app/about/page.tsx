@@ -47,8 +47,12 @@ export default function AboutPage() {
             </p>
             <p className="mt-4">
               Our reputation is built inside plant fences and on institutional
-              campuses. Clients like {site.majorClients.slice(0, 3).join(", ")},{" "}
-              and {site.majorClients[3]} trust us with the work because we
+              campuses. Clients like{" "}
+              {site.majorClients
+                .slice(0, 3)
+                .map((c) => c.name)
+                .join(", ")}
+              , and {site.majorClients[3].name} trust us with the work because we
               prequalify, document, and deliver.
             </p>
           </div>
