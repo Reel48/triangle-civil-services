@@ -7,23 +7,35 @@
   --color-subtle: #f4f5f7;
   --color-border: #e4e6eb;
 
-  --color-concrete-50: #f7f7f6;
-  --color-concrete-100: #ededeb;
-  --color-concrete-200: #d9d8d3;
-  --color-concrete-300: #b6b4ac;
-  --color-concrete-400: #8a8780;
-  --color-concrete-500: #5d5a54;
-  --color-concrete-600: #3f3d39;
-  --color-concrete-700: #2a2927;
-  --color-concrete-800: #1b1a19;
-  --color-concrete-900: #0f0e0d;
+  --color-concrete-50: #f6f7fa;
+  --color-concrete-100: #eceef3;
+  --color-concrete-200: #d7dbe4;
+  --color-concrete-300: #b3b8c6;
+  --color-concrete-400: #858a9a;
+  --color-concrete-500: #585d6c;
+  --color-concrete-600: #3b3f4b;
+  --color-concrete-700: #282c37;
+  --color-concrete-800: #1a1e2a;
+  --color-concrete-900: #131d4f; /* brand navy */
 
-  --color-accent-50: #fff1ec;
-  --color-accent-100: #ffd9cb;
-  --color-accent-400: #f66a3d;
-  --color-accent-500: #e8501f;
-  --color-accent-600: #c63e12;
-  --color-accent-700: #982f0e;
+  /* Brand */
+  --color-brand-navy: #131d4f;
+  --color-brand-navy-700: #1a265f;
+  --color-brand-navy-600: #22307a;
+  --color-brand-blue: #2d319b;
+  --color-brand-blue-600: #252785;
+  --color-brand-yellow: #f2e607;
+  --color-brand-yellow-400: #fff04a;
+
+  /* Accent scale (blue for light bg, yellow on dark bg via accent-400) */
+  --color-accent-50: #eef0ff;
+  --color-accent-100: #d6dbff;
+  --color-accent-200: #b8bff5;
+  --color-accent-300: #8b92e5;
+  --color-accent-400: #f2e607; /* brand yellow — used on dark navy surfaces */
+  --color-accent-500: #2d319b; /* brand blue */
+  --color-accent-600: #252785;
+  --color-accent-700: #1e2078;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

@@ -2,14 +2,16 @@ import Link from "next/link";
 import * as React from "react";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "secondary" | "ghost" | "outline";
+type Variant = "primary" | "secondary" | "cta" | "ghost" | "outline";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent-500 text-white hover:bg-accent-600 focus-visible:outline-accent-600",
+    "bg-brand-blue text-white hover:bg-brand-blue-600 focus-visible:outline-brand-blue-600",
   secondary:
-    "bg-concrete-800 text-white hover:bg-concrete-700 focus-visible:outline-concrete-700",
+    "bg-brand-navy text-white hover:bg-brand-navy-700 focus-visible:outline-brand-navy-700",
+  cta:
+    "bg-brand-yellow text-brand-navy font-semibold hover:bg-brand-yellow-400 focus-visible:outline-brand-yellow",
   outline:
     "border border-concrete-300 text-concrete-800 hover:bg-concrete-50 focus-visible:outline-concrete-400",
   ghost:

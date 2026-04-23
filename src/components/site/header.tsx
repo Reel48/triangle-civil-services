@@ -96,37 +96,46 @@ function Logo({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      viewBox="0 0 160 32"
+      viewBox="0 0 240 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+      aria-label="Triangle Civil Services"
     >
-      <path d="M16 2L30 28H2L16 2Z" className="fill-accent-500" />
+      {/* Yellow triangle mark */}
+      <path
+        d="M20 4 L36 34 L4 34 Z"
+        fill="#f2e607"
+        stroke="#131d4f"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
       <text
-        x="38"
-        y="22"
-        className="fill-concrete-900"
+        x="20"
+        y="27"
+        textAnchor="middle"
+        fill="#131d4f"
         style={{
           fontFamily: "var(--font-display, sans-serif)",
-          fontWeight: 700,
-          fontSize: 18,
-          letterSpacing: "-0.02em",
+          fontWeight: 800,
+          fontSize: 10,
+          letterSpacing: "0.04em",
         }}
       >
         TCS
       </text>
+      {/* Wordmark */}
       <text
-        x="82"
-        y="22"
-        className="fill-concrete-500"
+        x="48"
+        y="28"
+        fill="#131d4f"
         style={{
-          fontFamily: "var(--font-sans, sans-serif)",
-          fontWeight: 500,
-          fontSize: 11,
-          letterSpacing: "0.12em",
+          fontFamily: "var(--font-display, sans-serif)",
+          fontWeight: 700,
+          fontSize: 18,
+          letterSpacing: "-0.01em",
         }}
       >
-        CIVIL
+        Triangle Civil Services
       </text>
     </svg>
   );

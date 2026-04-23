@@ -15,14 +15,14 @@ export function CtaSection() {
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row md:flex-col md:items-end">
-          <ButtonLink href="/request-a-quote" size="lg">
+          <ButtonLink href="/request-a-quote" variant="cta" size="lg">
             Request a quote
           </ButtonLink>
           <ButtonLink
             href={site.contact.phoneHref}
             variant="outline"
             size="lg"
-            className="border-concrete-700 text-white hover:bg-concrete-800"
+            className="border-brand-navy-700 text-white hover:bg-brand-navy-700"
           >
             Call {site.contact.phone}
           </ButtonLink>

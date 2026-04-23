@@ -30,7 +30,7 @@ function Hero() {
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           backgroundImage:
-            "radial-gradient(1200px 500px at 80% -10%, rgba(232,80,31,0.22), transparent), radial-gradient(800px 400px at 10% 120%, rgba(255,255,255,0.06), transparent)",
+            "radial-gradient(1200px 500px at 80% -10%, rgba(242,230,7,0.18), transparent), radial-gradient(800px 400px at 10% 120%, rgba(45,49,155,0.35), transparent)",
         }}
       />
       <div className="container-page relative grid gap-10 py-20 md:py-28 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:py-32">
@@ -47,14 +47,14 @@ function Hero() {
             of concrete and move over a million yards of dirt every year.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/request-a-quote" size="lg">
+            <ButtonLink href="/request-a-quote" variant="cta" size="lg">
               Request a quote
             </ButtonLink>
             <ButtonLink
               href="/projects"
               variant="outline"
               size="lg"
-              className="border-concrete-600 text-white hover:bg-concrete-800"
+              className="border-brand-navy-700 text-white hover:bg-brand-navy-700"
             >
               See our work
               <ArrowRight className="h-4 w-4" />
@@ -257,7 +257,7 @@ function SafetyPreview() {
             audited, constantly improved, and owned by every crew member.
           </p>
           <div className="mt-8">
-            <ButtonLink href="/safety" variant="primary" size="lg">
+            <ButtonLink href="/safety" variant="cta" size="lg">
               Safety program <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>
