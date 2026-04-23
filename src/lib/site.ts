@@ -46,6 +46,10 @@ export const site = {
   safetyPrograms: ["ISNetworld", "Avetta", "Veriforce", "ISTC", "DISA"],
 } as const;
 
+export const appleMapsUrl = `https://maps.apple.com/?address=${encodeURIComponent(
+  `${site.contact.address.street}, ${site.contact.address.city}, ${site.contact.address.region} ${site.contact.address.postalCode}`,
+)}`;
+
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [

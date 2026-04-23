@@ -3,7 +3,7 @@ import { Field, Input, Label, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
-import { site } from "@/lib/site";
+import { appleMapsUrl, site } from "@/lib/site";
 
 export const metadata = {
   title: "Contact",
@@ -76,12 +76,17 @@ export default function ContactPage() {
             <ul className="mt-4 space-y-3 text-sm text-concrete-700">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-600" />
-                <span>
+                <a
+                  href={appleMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-accent-700"
+                >
                   {contact.address.street}
                   <br />
                   {contact.address.city}, {contact.address.region}{" "}
                   {contact.address.postalCode}
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-accent-600" />
