@@ -56,12 +56,23 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2 text-sm">
               {group.items.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-concrete-300 hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-concrete-300 hover:text-white"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-concrete-300 hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

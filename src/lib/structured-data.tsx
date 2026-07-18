@@ -68,6 +68,9 @@ export function projectJsonLd(project: Project): JsonLd {
     },
     creator: { "@id": `${site.url}/#organization` },
     description: project.scopeSummary,
+    ...(project.image
+      ? { image: `${site.url}${project.image}` }
+      : {}),
     url: `${site.url}/projects/${project.slug}`,
   };
 }

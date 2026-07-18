@@ -4,8 +4,10 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
+import { ProjectGallery } from "@/components/site/project-gallery";
 import { Section } from "@/components/site/section";
 import { projects } from "@/content/projects";
+import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
 import {
   JsonLdScript,
@@ -60,30 +62,42 @@ export default async function ProjectPage({
       />
 
       <Section>
+        {project.gallery?.length ? (
+          <div className="mb-12">
+            <ProjectGallery gallery={project.gallery} />
+          </div>
+        ) : null}
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           <div className="max-w-prose">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-concrete-100">
-              {project.image ? (
-                <Image
-                  src={project.image}
-                  alt={project.imageAlt ?? project.title}
-                  fill
-                  sizes="(min-width: 1024px) 58vw, 100vw"
-                  priority
-                  className="object-cover"
-                />
-              ) : (
-                <div
-                  aria-hidden
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, var(--color-concrete-300) 0%, var(--color-concrete-600) 100%)",
-                  }}
-                />
+            {!project.gallery?.length ? (
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-concrete-100">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt ?? project.title}
+                    fill
+                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    priority
+                    className="object-cover"
+                  />
+                ) : (
+                  <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(135deg, var(--color-concrete-300) 0%, var(--color-concrete-600) 100%)",
+                    }}
+                  />
+                )}
+              </div>
+            ) : null}
+            <h2
+              className={cn(
+                "font-display text-2xl font-semibold text-concrete-900",
+                project.gallery?.length ? "" : "mt-10"
               )}
-            </div>
-            <h2 className="font-display mt-10 text-2xl font-semibold text-concrete-900">
+            >
               Scope of work
             </h2>
             <ul className="mt-4 space-y-2.5">

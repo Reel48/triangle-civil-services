@@ -52,16 +52,16 @@ export default function ServicesIndexPage() {
         <ul className="grid gap-6 md:grid-cols-3">
           {[
             {
-              src: "/services/services-1.jpg",
-              alt: "TCS crew on a concrete paving placement",
+              src: "/projects/dicks-sporting-goods-beaumont/01-slab-pour.jpg",
+              alt: "TCS crew placing a large concrete slab from a pump truck",
             },
             {
-              src: "/services/services-2.jpg",
-              alt: "TCS earthwork and site preparation",
+              src: "/projects/sour-lake-detention-pond/01-detention-pond.jpg",
+              alt: "TCS earthwork and site preparation at a stormwater detention pond",
             },
             {
-              src: "/services/services-3.jpg",
-              alt: "TCS foundations and drilled footings",
+              src: "/projects/dicks-sporting-goods-beaumont/03-drill-pier-installation.jpg",
+              alt: "TCS drilled pier foundation installation",
             },
           ].map(({ src, alt }) => (
             <li

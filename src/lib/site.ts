@@ -102,7 +102,7 @@ export function buildMailto({
   )}&body=${encodeURIComponent(body)}`;
 }
 
-export type NavItem = { label: string; href: string };
+export type NavItem = { label: string; href: string; external?: boolean };
 
 export const primaryNav: NavItem[] = [
   { label: "Services", href: "/services" },
@@ -122,6 +122,7 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
       { label: "Safety", href: "/safety" },
       { label: "Capabilities", href: "/capabilities" },
       { label: "Careers", href: "/careers" },
+      { label: "Company brochure (PDF)", href: "/tcs-brochure.pdf", external: true },
     ],
   },
   {
