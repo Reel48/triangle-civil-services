@@ -77,7 +77,7 @@ export function ProjectGallery({ gallery }: { gallery: ProjectImage[] }) {
 
   return (
     <div>
-      {/* Main image — click to enlarge */}
+      {/* Main image (click to enlarge) */}
       <button
         type="button"
         onClick={(e) => openAt(active, e.currentTarget)}

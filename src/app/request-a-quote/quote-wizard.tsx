@@ -113,14 +113,14 @@ export function QuoteWizard() {
           </span>
           <div>
             <p className="font-display text-xl font-semibold text-concrete-900">
-              Thanks — we&apos;ve got it.
+              Thanks, we&apos;ve got it.
             </p>
             <p className="mt-2 text-concrete-600">
               Our estimating team will be in touch the same business day. If
               it&apos;s urgent, a phone call is the fastest path.
             </p>
             <p className="mt-4 text-sm text-concrete-500">
-              (Demo only — no request has actually been sent.)
+              (Demo only. No request has actually been sent.)
             </p>
           </div>
         </div>
@@ -382,11 +382,11 @@ function ReviewSummary({
       <ReviewRow label="Name" value={values.name} />
       <ReviewRow label="Company" value={values.company} />
       <ReviewRow label="Email" value={values.email} />
-      <ReviewRow label="Phone" value={values.phone || "—"} />
+      <ReviewRow label="Phone" value={values.phone || "Not provided"} />
       <ReviewRow label="Market" value={values.market} />
       <ReviewRow label="Scope" value={scopeLabel} />
       <ReviewRow label="Location" value={values.location} />
-      <ReviewRow label="Target start" value={values.startDate || "—"} />
+      <ReviewRow label="Target start" value={values.startDate || "Not provided"} />
       <ReviewRow
         label="Details"
         value={values.details}

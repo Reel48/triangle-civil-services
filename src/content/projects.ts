@@ -71,7 +71,7 @@ export const projects: Project[] = [
   },
   {
     slug: "lamar-setzer-center",
-    title: "Lamar University — Setzer Center",
+    title: "Lamar University: Setzer Center",
     client: "Lamar University",
     location: "Beaumont, TX",
     market: "Institutional",

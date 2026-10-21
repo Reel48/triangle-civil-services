@@ -57,7 +57,7 @@ function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-concrete-100 md:text-xl">
             From refinery foundations to institutional builds and stormwater
-            infrastructure — we pour {site.concreteYardsPerYear.toLocaleString()} yards
+            infrastructure, we pour {site.concreteYardsPerYear.toLocaleString()} yards
             of concrete and move over a million yards of dirt every year.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -176,7 +176,7 @@ function StatsBand() {
     {
       icon: HardHat,
       title: "Self-perform crews",
-      body: `${site.headcount} employees, scaling to ${site.capacity} depending on workload — no subcontracting the critical path.`,
+      body: `${site.headcount} employees, scaling to ${site.capacity} depending on workload. No subcontracting the critical path.`,
     },
     {
       icon: Truck,
@@ -186,7 +186,7 @@ function StatsBand() {
     {
       icon: ShieldCheck,
       title: "Safety programs",
-      body: `Enrolled in ${site.safetyPrograms.join(", ")} — prequalified for industrial and petrochem work.`,
+      body: `Enrolled in ${site.safetyPrograms.join(", ")} and prequalified for industrial and petrochem work.`,
     },
   ];
   return (
@@ -285,7 +285,7 @@ function SafetyPreview() {
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-concrete-600">
             Our safety program is built around the prequalification standards
-            of the petrochemical and industrial clients we serve — regularly
+            of the petrochemical and industrial clients we serve. It is regularly
             audited, constantly improved, and owned by every crew member.
           </p>
           <div className="mt-8">

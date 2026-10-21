@@ -24,7 +24,7 @@ export async function generateMetadata({
   const role = roles.find((r) => r.slug === slug);
   if (!role) return {};
   return {
-    title: `${role.title} — Careers`,
+    title: `${role.title} | Careers`,
     description: role.summary,
     alternates: { canonical: `${site.url}/careers/${role.slug}` },
   };
@@ -165,7 +165,7 @@ Thanks,
             Apply for this role
           </h2>
           <p className="mt-3 text-concrete-600">
-            Tell us a bit about yourself. This is a demo form — submissions are
+            Tell us a bit about yourself. This is a demo form, so submissions are
             not sent anywhere yet.
           </p>
         </div>

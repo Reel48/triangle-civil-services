@@ -69,7 +69,7 @@ export const roles: Role[] = [
     type: "Full-time",
     team: "Operations",
     summary:
-      "Own the daily field execution of concrete, earthwork, and civil packages — from mobilization through closeout.",
+      "Own the daily field execution of concrete, earthwork, and civil packages, from mobilization through closeout.",
     responsibilities: [
       "Plan and sequence crews, equipment, and materials on multi-phase sites",
       "Lead daily safety briefings and enforce JSAs",

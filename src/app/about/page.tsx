@@ -19,7 +19,7 @@ const timeline = [
   {
     year: "2018",
     title: "Triangle Civil Services launches",
-    body: "The Triangle Civil Services d.b.a. expands scope beyond concrete into full heavy civil — earthwork, stormwater, and site infrastructure.",
+    body: "The Triangle Civil Services d.b.a. expands scope beyond concrete into full heavy civil: earthwork, stormwater, and site infrastructure.",
   },
   {
     year: "Today",
@@ -34,7 +34,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Two decades of self-performed concrete and civil work on the Gulf Coast."
-        lead={`${site.legalName} has served industrial, commercial, and institutional clients since ${site.founded}. Our crews, equipment, and schedule are all in-house — so we own the outcome.`}
+        lead={`${site.legalName} has served industrial, commercial, and institutional clients since ${site.founded}. Our crews, equipment, and schedule are all in-house, so we own the outcome.`}
       />
 
       <Section>
@@ -43,7 +43,7 @@ export default function AboutPage() {
             <p className="text-lg">
               We started in Beaumont pouring concrete for industrial and
               commercial clients. Nearly two decades later we&apos;re a full
-              heavy-civil contractor — still self-performing foundations,
+              heavy-civil contractor, still self-performing foundations,
               paving, drilled shafts, elevated structures, and stormwater work.
             </p>
             <p className="mt-4">

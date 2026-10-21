@@ -13,7 +13,7 @@ export const services: Service[] = [
     summary:
       "Heavy-duty pavement for industrial yards, distribution facilities, and commercial sites.",
     description:
-      "From plant and refinery yards to retail parking, we self-perform form, reinforcement, placement, and finish — to spec, on schedule.",
+      "From plant and refinery yards to retail parking, we self-perform form, reinforcement, placement, and finish to spec and on schedule.",
     bullets: [
       "Industrial-grade slab-on-grade",
       "Jointed reinforced paving",
@@ -27,7 +27,7 @@ export const services: Service[] = [
     summary:
       "Structural foundations for industrial, commercial, and institutional builds.",
     description:
-      "Spread footings, mat foundations, and pile caps for buildings, tanks, racks, and process equipment — coordinated with structural steel and MEP trades.",
+      "Spread footings, mat foundations, and pile caps for buildings, tanks, racks, and process equipment, coordinated with structural steel and MEP trades.",
     bullets: [
       "Spread and mat foundations",
       "Pile caps and grade beams",
@@ -54,7 +54,7 @@ export const services: Service[] = [
     summary:
       "Elevated slabs, platforms, and pipe racks for process facilities.",
     description:
-      "Formwork, shoring, reinforcement, and concrete placement for elevated structural concrete — from equipment platforms to elevated process decks.",
+      "Formwork, shoring, reinforcement, and concrete placement for elevated structural concrete, from equipment platforms to elevated process decks.",
     bullets: [
       "Elevated slabs and decks",
       "Structural platforms",
@@ -80,7 +80,7 @@ export const services: Service[] = [
     slug: "site-preparation",
     title: "Site Preparation & Earthwork",
     summary:
-      "Mass grading, excavation, and earthmoving — over one million yards a year.",
+      "Mass grading, excavation, and earthmoving: over one million yards a year.",
     description:
       "Clearing, grubbing, demolition, grading, excavation, and site utilities to deliver a pad ready for structural work.",
     bullets: [
