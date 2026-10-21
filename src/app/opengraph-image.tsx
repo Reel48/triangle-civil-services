@@ -50,15 +50,15 @@ export default function OpengraphImage() {
             style={{
               display: "flex",
               flexDirection: "column",
-              fontSize: "76px",
+              fontSize: "64px",
               fontWeight: 700,
-              lineHeight: 1.05,
+              lineHeight: 1.08,
               letterSpacing: "-0.02em",
-              maxWidth: "920px",
+              maxWidth: "1040px",
             }}
           >
-            <span>Heavy civil and concrete,</span>
-            <span>self-performed.</span>
+            Delivers Top-Tier Civil Construction &amp; Specialty Concrete
+            Services
           </div>
           <div
             style={{
