@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 const privacyMailtoHref = buildMailto({
-  subject: "Privacy question — Triangle Civil Services",
+  subject: "Privacy question: Triangle Civil Services",
   body: `Hi Triangle Civil Services team,
 
 I had a question about your privacy practices:

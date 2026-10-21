@@ -14,7 +14,7 @@ export const metadata = {
 };
 
 const hrMailtoHref = buildMailto({
-  subject: "Career inquiry — Triangle Civil Services",
+  subject: "Career inquiry: Triangle Civil Services",
   body: `Hi Triangle Civil Services HR team,
 
 I'm interested in learning more about career opportunities with your crew. A quick introduction:

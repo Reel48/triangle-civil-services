@@ -6,7 +6,7 @@ import { Section } from "@/components/site/section";
 import { appleMapsUrl, buildMailto, site } from "@/lib/site";
 
 const generalMailtoHref = buildMailto({
-  subject: "General inquiry — Triangle Civil Services",
+  subject: "General inquiry: Triangle Civil Services",
   body: `Hi Triangle Civil Services team,
 
 • Name:

@@ -16,7 +16,7 @@ export default function SafetyPage() {
       <PageHero
         eyebrow="Safety"
         title="Safety is the work."
-        lead="Our program is built around the prequalification standards our industrial and petrochem clients require — and owned by every crew member."
+        lead="Our program is built around the prequalification standards our industrial and petrochem clients require, and it is owned by every crew member."
       />
 
       <Section>
@@ -24,13 +24,13 @@ export default function SafetyPage() {
           <div className="max-w-prose text-concrete-700">
             <p className="text-lg">
               Working inside a plant fence is a privilege earned one shift at a
-              time. We treat every project — industrial or not — with the same
+              time. We treat every project, industrial or not, with the same
               protocols: pre-task planning, daily JSAs, documented training, and
               visible leadership in the field.
             </p>
             <p className="mt-4">
               Our safety program is continuously audited through third-party
-              prequalification networks. The goal isn&apos;t paperwork — it&apos;s crews
+              prequalification networks. The goal isn&apos;t paperwork. It&apos;s crews
               that go home the way they came in.
             </p>
           </div>

@@ -30,14 +30,14 @@ export default function CapabilitiesPage() {
         <div className="grid gap-8 md:grid-cols-3">
           <Panel title="Self-perform percentage">
             We self-perform the concrete, earthwork, drilled foundations, and
-            stormwater packages on most of our projects — no lost critical
-            path to a sub.
+            stormwater packages on most of our projects, so we never lose
+            the critical path to a sub.
           </Panel>
           <Panel title="Workforce">
             {`${site.headcount} employees core, scaling to ${site.capacity}+ at peak. Cross-trained crews across earthwork, concrete, and drilling.`}
           </Panel>
           <Panel title="Service area">
-            {`Headquartered in ${site.contact.address.city}, TX. Active across ${site.serviceArea.join(" and ")} — from refineries in Port Arthur to institutional campuses and beyond.`}
+            {`Headquartered in ${site.contact.address.city}, TX. Active across ${site.serviceArea.join(" and ")}, from refineries in Port Arthur to institutional campuses and beyond.`}
           </Panel>
         </div>
       </Section>

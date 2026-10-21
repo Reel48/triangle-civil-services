@@ -25,7 +25,7 @@ const display = Public_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Heavy civil & concrete construction, Beaumont, TX`,
+    default: `${site.name} | Heavy civil & concrete construction, Beaumont, TX`,
     template: `%s | ${site.name}`,
   },
   description: site.description,

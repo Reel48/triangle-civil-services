@@ -11,7 +11,7 @@ export const site = {
   url: "https://tcsinc.build",
   tagline: "Heavy civil and concrete construction across the Gulf Coast.",
   description:
-    "Industrial, commercial, and institutional concrete and civil construction — self-performed across Texas and Louisiana.",
+    "Industrial, commercial, and institutional concrete and civil construction, self-performed across Texas and Louisiana.",
   contact: {
     phone: "(409) 861-1650",
     phoneHref: "tel:+14098611650",
@@ -57,7 +57,7 @@ export const site = {
     },
     {
       name: "ENR Texas & Louisiana",
-      detail: "Top 50 Regional Contractor — 2024",
+      detail: "Top 50 Regional Contractor, 2024",
       icon: "award",
     },
     {

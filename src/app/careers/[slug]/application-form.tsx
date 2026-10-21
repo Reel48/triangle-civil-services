@@ -30,7 +30,7 @@ export function ApplicationForm({ roleSlug, roleTitle }: Props) {
           </span>
           <div>
             <p className="font-display text-xl font-semibold text-concrete-900">
-              Thanks — application received.
+              Thanks, application received.
             </p>
             <p className="mt-2 text-concrete-600">
               We&apos;ve captured your interest in the{" "}
@@ -39,7 +39,7 @@ export function ApplicationForm({ roleSlug, roleTitle }: Props) {
               business days.
             </p>
             <p className="mt-4 text-sm text-concrete-500">
-              (Demo only — no submission has actually been sent.)
+              (Demo only. No submission has actually been sent.)
             </p>
           </div>
         </div>

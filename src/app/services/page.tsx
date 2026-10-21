@@ -18,7 +18,7 @@ export default function ServicesIndexPage() {
       <PageHero
         eyebrow="Services"
         title="Everything we self-perform."
-        lead="Concrete, earthwork, and civil scopes executed with in-house crews and equipment — from single-package bids to full sitework."
+        lead="Concrete, earthwork, and civil scopes executed with in-house crews and equipment, from single-package bids to full sitework."
       />
       <Section>
         <ul className="grid gap-6 md:grid-cols-2">

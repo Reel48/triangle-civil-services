@@ -15,7 +15,7 @@ export default function QuotePage() {
       <PageHero
         eyebrow="Request a quote"
         title="Tell us about the project."
-        lead="Share scope, schedule, and any drawings — we'll respond the same business day with next steps."
+        lead="Share scope, schedule, and any drawings, and we'll respond the same business day with next steps."
       />
 
       <Section>
