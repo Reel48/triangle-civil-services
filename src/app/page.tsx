@@ -25,13 +25,24 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-concrete-900 text-white">
+    <section className="relative isolate overflow-hidden bg-concrete-900 text-white">
+      <Image
+        src="/hero/site-aerial.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover object-center"
+      />
+      {/* Navy scrim keeps the copy legible over the busy aerial photo:
+          heavier on the left where the headline sits, lighter on the right
+          so the jobsite still reads. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-40"
+        className="pointer-events-none absolute inset-0 -z-10"
         style={{
           backgroundImage:
-            "radial-gradient(1200px 500px at 80% -10%, rgba(242,230,7,0.18), transparent), radial-gradient(800px 400px at 10% 120%, rgba(45,49,155,0.35), transparent)",
+            "linear-gradient(90deg, rgba(30,36,69,0.86) 0%, rgba(30,36,69,0.68) 50%, rgba(30,36,69,0.45) 100%), linear-gradient(180deg, transparent 55%, rgba(30,36,69,0.5) 100%)",
         }}
       />
       <div className="container-page relative grid gap-10 py-16 md:py-28 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:py-32">
@@ -39,10 +50,12 @@ function Hero() {
           <p className="mb-4 text-xs font-semibold tracking-[0.24em] text-accent-400 uppercase">
             Beaumont, TX · Serving TX & LA since {site.founded}
           </p>
-          <h1 className="font-display max-w-3xl text-4xl leading-[1.02] font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
-            Heavy civil and concrete, self-performed.
+          <h1 className="font-display max-w-3xl text-4xl leading-[1.05] font-semibold [text-shadow:0_2px_24px_rgba(15,17,21,0.45)] sm:text-5xl md:text-6xl">
+            <span className="block text-accent-400">{site.name}</span>
+            Delivers Top-Tier Civil Construction &amp; Specialty Concrete
+            Services
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-concrete-200 md:text-xl">
+          <p className="mt-6 max-w-xl text-lg text-concrete-100 md:text-xl">
             From refinery foundations to institutional builds and stormwater
             infrastructure — we pour {site.concreteYardsPerYear.toLocaleString()} yards
             of concrete and move over a million yards of dirt every year.
@@ -62,7 +75,7 @@ function Hero() {
             </ButtonLink>
           </div>
         </div>
-        <dl className="grid grid-cols-2 gap-6 border-t border-white/20 pt-10 text-sm lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+        <dl className="grid grid-cols-2 gap-6 border-t border-white/25 pt-10 text-sm [text-shadow:0_1px_12px_rgba(15,17,21,0.6)] lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
           <Stat label="Employees" value={`${site.headcount}+`} />
           <Stat label="Year founded" value={site.founded.toString()} />
           <Stat
@@ -82,7 +95,7 @@ function Hero() {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs font-medium tracking-[0.18em] text-concrete-300 uppercase">
+      <dt className="text-xs font-medium tracking-[0.18em] text-concrete-200 uppercase">
         {label}
       </dt>
       <dd className="font-display mt-1 text-3xl font-semibold text-white tabular-nums md:text-4xl">

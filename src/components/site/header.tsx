@@ -18,8 +18,17 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+
+  // Compact the header (and its large logo) once the page scrolls.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Body scroll lock + Escape to close + focus management while open.
   // (Route-change close is handled by onClick on each nav link.)
@@ -71,20 +80,29 @@ export function SiteHeader() {
         paddingRight: "env(safe-area-inset-right)",
       }}
     >
-      <div className="container-page flex h-16 items-center justify-between gap-6 md:h-20">
+      <div
+        className={cn(
+          "container-page flex items-center justify-between gap-6 transition-[height] duration-200 ease-out",
+          scrolled ? "h-16 md:h-20" : "h-20 md:h-28",
+        )}
+      >
         <Link
           href="/"
           aria-label={`${site.name} home`}
-          className="flex items-center"
+          className="flex shrink-0 items-center"
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/brand/logo.png"
+            src="/brand/tcs-logo.svg"
             alt={site.name}
-            width={3515}
-            height={665}
+            width={860}
+            height={764}
             priority
-            className="h-9 w-auto md:h-10"
+            unoptimized
+            className={cn(
+              "w-auto transition-[height] duration-200 ease-out",
+              scrolled ? "h-12 md:h-16" : "h-16 md:h-24",
+            )}
           />
         </Link>
 
