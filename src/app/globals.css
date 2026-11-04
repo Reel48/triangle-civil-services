@@ -105,6 +105,41 @@ button,
   }
 }
 
+/* Scroll-linked header compaction (driven by SiteHeader).
+   The header is always laid out at full height. A negative sticky `top`
+   lets it scroll up natively by --header-shrink px and then stick, so its
+   bottom edge always moves exactly with the content: no layout shift, no
+   scroll-anchoring jumps, no gap. JS writes the clamped scroll offset to
+   --header-scroll; --header-p is the 0 to 1 compaction progress, which
+   re-centres the bar in the visible strip and scales the logo with
+   transforms only. */
+@layer components {
+  .site-header {
+    --header-shrink: 16; /* bar h-20 -> h-16 */
+    --header-logo-scale: 0.75; /* logo h-16 -> h-12 */
+    --header-p: calc(
+      min(var(--header-scroll, 0), var(--header-shrink)) / var(--header-shrink)
+    );
+    top: calc(var(--header-shrink) * -1px);
+  }
+
+  @media (width >= 48rem) {
+    .site-header {
+      --header-shrink: 32; /* bar h-28 -> h-20 */
+      --header-logo-scale: 0.6667; /* logo h-24 -> h-16 */
+    }
+  }
+
+  .site-header-bar {
+    transform: translateY(calc(var(--header-p) * var(--header-shrink) * 0.5px));
+  }
+
+  .site-header-logo {
+    transform-origin: left center;
+    transform: scale(calc(1 - var(--header-p) * (1 - var(--header-logo-scale))));
+  }
+}
+
 @utility container-page {
   width: 100%;
   max-width: 80rem;
