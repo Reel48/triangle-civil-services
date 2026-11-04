@@ -3,12 +3,14 @@ import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Safety",
   description:
     "Our safety program meets the prequalification standards of the industrial and petrochemical clients we serve.",
-};
+  path: "/safety",
+});
 
 export default function SafetyPage() {
   return (

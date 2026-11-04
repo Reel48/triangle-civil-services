@@ -3,12 +3,14 @@ import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description:
     "Founded in 2006, Triangle Concrete Services is a self-performing concrete and civil construction firm based in Beaumont, Texas.",
-};
+  path: "/about",
+});
 
 const timeline = [
   {
@@ -95,9 +97,9 @@ export default function AboutPage() {
               <p className="font-display text-accent-600 text-sm font-semibold tracking-[0.2em] uppercase">
                 {t.year}
               </p>
-              <p className="font-display mt-3 text-xl font-semibold text-concrete-900">
+              <h3 className="font-display mt-3 text-xl font-semibold text-concrete-900">
                 {t.title}
-              </p>
+              </h3>
               <p className="mt-2 text-concrete-600">{t.body}</p>
             </li>
           ))}

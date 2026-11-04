@@ -5,12 +5,14 @@ import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { services } from "@/content/services";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Services",
   description:
     "Concrete paving, foundations, drilled footings, elevated structures, stormwater, site prep, and earthwork.",
-};
+  path: "/services",
+});
 
 export default function ServicesIndexPage() {
   return (
@@ -28,9 +30,9 @@ export default function ServicesIndexPage() {
                 href={`/services/${s.slug}`}
                 className="group flex h-full flex-col rounded-lg border border-concrete-200 bg-white p-8 transition-shadow hover:shadow-md"
               >
-                <p className="font-display text-2xl font-semibold text-concrete-900">
+                <h2 className="font-display text-2xl font-semibold text-concrete-900">
                   {s.title}
-                </p>
+                </h2>
                 <p className="mt-3 flex-1 text-concrete-500">{s.summary}</p>
                 <ul className="mt-5 grid gap-1 text-sm text-concrete-600">
                   {s.bullets.slice(0, 4).map((b) => (

@@ -2,12 +2,14 @@ import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { site } from "@/lib/site";
 import { QuoteWizard } from "./quote-wizard";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Request a Quote",
   description:
     "Send us your scope and we'll respond with a bid the same business day.",
-};
+  path: "/request-a-quote",
+});
 
 export default function QuotePage() {
   return (

@@ -92,6 +92,19 @@ button,
   letter-spacing: -0.02em;
 }
 
+/* Long-form copy (legal pages). Preflight strips link color and underline,
+   so links inside running text need both restored to stay distinguishable. */
+@layer components {
+  .prose-like a {
+    color: var(--color-accent-600);
+    text-decoration-line: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-like a:hover {
+    color: var(--color-accent-700);
+  }
+}
+
 @utility container-page {
   width: 100%;
   max-width: 80rem;

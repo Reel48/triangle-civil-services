@@ -3,12 +3,14 @@ import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Capabilities",
   description:
     "Self-performed scopes, owned equipment, bonding capacity, and a service footprint across Texas and Louisiana.",
-};
+  path: "/capabilities",
+});
 
 const equipmentCategories = [
   { title: "Earthwork", items: ["Dozers", "Excavators", "Scrapers", "Articulated haul trucks"] },
@@ -55,9 +57,9 @@ export default function CapabilitiesPage() {
               key={c.title}
               className="rounded-lg border border-concrete-200 bg-white p-6"
             >
-              <p className="font-display text-lg font-semibold text-concrete-900">
+              <h3 className="font-display text-lg font-semibold text-concrete-900">
                 {c.title}
-              </p>
+              </h3>
               <ul className="mt-3 space-y-1.5 text-sm text-concrete-600">
                 {c.items.map((i) => (
                   <li key={i} className="flex items-start gap-2">
@@ -81,9 +83,9 @@ export default function CapabilitiesPage() {
 function Panel({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="rounded-lg border border-concrete-200 bg-white p-6">
-      <p className="font-display text-xl font-semibold text-concrete-900">
+      <h2 className="font-display text-xl font-semibold text-concrete-900">
         {title}
-      </p>
+      </h2>
       <p className="mt-3 text-concrete-600">{children}</p>
     </div>
   );

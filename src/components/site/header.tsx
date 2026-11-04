@@ -141,7 +141,9 @@ export function SiteHeader() {
       <div
         id="mobile-nav"
         ref={panelRef}
-        aria-hidden={!open}
+        // `inert` (not just aria-hidden) so the collapsed panel's links drop
+        // out of the Tab order as well as the accessibility tree.
+        inert={!open}
         className={cn(
           "overflow-hidden border-t border-concrete-100 bg-white transition-[max-height,opacity] duration-200 ease-out lg:hidden",
           open ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0",

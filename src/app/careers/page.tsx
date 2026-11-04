@@ -6,12 +6,14 @@ import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { roles } from "@/content/careers";
 import { buildMailto, site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Careers",
   description:
     "Join a self-performing concrete and civil contractor on the Gulf Coast.",
-};
+  path: "/careers",
+});
 
 const hrMailtoHref = buildMailto({
   subject: "Career inquiry: Triangle Civil Services",
@@ -57,7 +59,7 @@ export default function CareersPage() {
           Don&apos;t see the right fit? Send a resume to{" "}
           <a
             href={hrMailtoHref}
-            className="text-accent-600 hover:text-accent-700"
+            className="text-accent-600 underline underline-offset-3 hover:text-accent-700"
           >
             {site.contact.email}
           </a>
@@ -72,9 +74,9 @@ export default function CareersPage() {
                 className="group flex flex-col gap-3 p-6 transition-colors hover:bg-concrete-50 md:flex-row md:items-center md:justify-between"
               >
                 <div className="min-w-0">
-                  <p className="font-display text-lg font-semibold text-concrete-900 group-hover:text-accent-700">
+                  <h3 className="font-display text-lg font-semibold text-concrete-900 group-hover:text-accent-700">
                     {r.title}
-                  </p>
+                  </h3>
                   <p className="text-sm text-concrete-500">
                     {r.team} · {r.location} · {r.type}
                   </p>

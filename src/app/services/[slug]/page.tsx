@@ -6,7 +6,7 @@ import { CtaSection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { services } from "@/content/services";
-import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 import {
   JsonLdScript,
   breadcrumbJsonLd,
@@ -25,11 +25,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
-  return {
+  return pageMetadata({
     title: service.title,
     description: service.summary,
-    alternates: { canonical: `${site.url}/services/${service.slug}` },
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({

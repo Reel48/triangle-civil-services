@@ -8,7 +8,7 @@ import { ProjectGallery } from "@/components/site/project-gallery";
 import { Section } from "@/components/site/section";
 import { projects } from "@/content/projects";
 import { cn } from "@/lib/cn";
-import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 import {
   JsonLdScript,
   breadcrumbJsonLd,
@@ -27,11 +27,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
-  return {
+  return pageMetadata({
     title: project.title,
     description: project.scopeSummary,
-    alternates: { canonical: `${site.url}/projects/${project.slug}` },
-  };
+    path: `/projects/${project.slug}`,
+  });
 }
 
 export default async function ProjectPage({

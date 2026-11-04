@@ -6,7 +6,10 @@ import { CtaSection } from "@/components/site/cta-section";
 import { Section, SectionHeader } from "@/components/site/section";
 import { projects } from "@/content/projects";
 import { services } from "@/content/services";
+import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
+
+export const metadata = pageMetadata({ path: "/" });
 
 export default function HomePage() {
   const featured = projects.filter((p) => p.featured);
@@ -156,9 +159,9 @@ function ServicesPreview() {
               href={`/services/${s.slug}`}
               className="group flex h-full flex-col rounded-lg border border-concrete-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
-              <p className="font-display text-xl font-semibold text-concrete-900">
+              <h3 className="font-display text-xl font-semibold text-concrete-900">
                 {s.title}
-              </p>
+              </h3>
               <p className="mt-2 flex-1 text-concrete-500">{s.summary}</p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent-600 group-hover:text-accent-700">
                 Learn more <ArrowRight className="h-4 w-4" />
@@ -251,9 +254,9 @@ function FeaturedProjects({ featured }: { featured: typeof projects }) {
                 </span>
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <p className="font-display text-lg font-semibold text-concrete-900">
+                <h3 className="font-display text-lg font-semibold text-concrete-900">
                   {p.title}
-                </p>
+                </h3>
                 <p className="mt-1 text-sm text-concrete-500">
                   {p.location} · {p.year}
                 </p>

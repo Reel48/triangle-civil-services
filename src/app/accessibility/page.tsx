@@ -1,11 +1,13 @@
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { buildMailto, site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Accessibility",
   description: `Accessibility statement for ${site.name}.`,
-};
+  path: "/accessibility",
+});
 
 const accessibilityMailtoHref = buildMailto({
   subject: "Accessibility issue on tcsinc.build",
@@ -32,7 +34,7 @@ export default function AccessibilityPage() {
         lead="We aim to make this website usable for the widest possible audience."
       />
       <Section>
-        <div className="max-w-prose space-y-5 text-concrete-700">
+        <div className="prose-like max-w-prose space-y-5 text-concrete-700">
           <p>
             {site.legalName} is committed to making this website accessible in
             line with the Web Content Accessibility Guidelines (WCAG) 2.1 Level

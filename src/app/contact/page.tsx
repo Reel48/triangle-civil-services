@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { appleMapsUrl, buildMailto, site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
 const generalMailtoHref = buildMailto({
   subject: "General inquiry: Triangle Civil Services",
@@ -19,10 +20,11 @@ Thanks,
 `,
 });
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
   description: "Get in touch with Triangle Civil Services in Beaumont, TX.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const { contact } = site;

@@ -1,9 +1,10 @@
 import * as React from "react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 const baseField =
   "block w-full rounded-md border border-concrete-300 bg-white px-3 py-2.5 text-base sm:text-[0.95rem] text-concrete-800 " +
-  "placeholder:text-concrete-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 " +
+  "placeholder:text-concrete-500 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30 " +
   "disabled:bg-concrete-50";
 
 export const Input = React.forwardRef<
@@ -31,14 +32,21 @@ export const Select = React.forwardRef<
   HTMLSelectElement,
   React.SelectHTMLAttributes<HTMLSelectElement>
 >(function Select({ className, children, ...props }, ref) {
+  // appearance-none strips the native arrow, so draw one back in.
   return (
-    <select
-      ref={ref}
-      className={cn(baseField, "appearance-none pr-9", className)}
-      {...props}
-    >
-      {children}
-    </select>
+    <div className="relative">
+      <select
+        ref={ref}
+        className={cn(baseField, "appearance-none pr-9", className)}
+        {...props}
+      >
+        {children}
+      </select>
+      <ChevronDown
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 text-concrete-500"
+      />
+    </div>
   );
 });
 
@@ -62,7 +70,7 @@ export function Label({ htmlFor, children, required, hint, className }: LabelPro
       {children}
       {required ? <span className="ml-0.5 text-accent-500">*</span> : null}
       {hint ? (
-        <span className="ml-2 font-normal text-concrete-400">{hint}</span>
+        <span className="ml-2 font-normal text-concrete-500">{hint}</span>
       ) : null}
     </label>
   );

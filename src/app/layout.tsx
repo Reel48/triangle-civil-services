@@ -29,12 +29,15 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  // Fallbacks only. No `url` or canonical here: those must be per page (see
+  // pageMetadata in src/lib/metadata.ts), or every page would claim to be
+  // the homepage.
   openGraph: {
     type: "website",
     siteName: site.name,
+    locale: "en_US",
     title: site.name,
     description: site.description,
-    url: site.url,
   },
   twitter: {
     card: "summary_large_image",
@@ -42,7 +45,6 @@ export const metadata: Metadata = {
     description: site.description,
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: site.url },
 };
 
 export const viewport: Viewport = {
