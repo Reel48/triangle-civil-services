@@ -109,7 +109,70 @@ test("quote wizard: validates and advances through steps", async ({ page }) => {
   await expect(page.locator("text=Step 4 of 4")).toBeVisible();
   await expect(page.getByText("Test User")).toBeVisible();
   await page.getByRole("button", { name: /send bid request/i }).click();
-  await expect(page.getByText(/Thanks — we/i)).toBeVisible();
+  await expect(page.getByText(/Thanks, we/i)).toBeVisible();
+});
+
+test("quote wizard moves focus to the new step heading", async ({ page }) => {
+  await page.goto("/request-a-quote");
+  // No focus jump on initial load.
+  await expect(page.getByRole("heading", { name: "Contact", exact: true })).not.toBeFocused();
+
+  await page.getByLabel(/^Your name/).fill("Test User");
+  await page.getByLabel(/^Company/).fill("ACME Build Co");
+  await page.getByLabel(/^Email/).fill("test@example.com");
+  await page.getByRole("button", { name: /next step/i }).click();
+  await expect(page.getByRole("heading", { name: "Project", exact: true })).toBeFocused();
+
+  await page.getByRole("button", { name: /previous step/i }).click();
+  await expect(page.getByRole("heading", { name: "Contact", exact: true })).toBeFocused();
+});
+
+for (const route of allRoutes) {
+  test(`canonical and og:url are self-referencing on ${route}`, async ({
+    page,
+  }) => {
+    await page.goto(route);
+    const strip = (u: string | null) => (u ?? "").replace(/\/$/, "");
+    const expected = strip(`https://tcsinc.build${route}`);
+    const canonical = await page
+      .locator('link[rel="canonical"]')
+      .getAttribute("href");
+    const ogUrl = await page
+      .locator('meta[property="og:url"]')
+      .getAttribute("content");
+    expect(strip(canonical)).toBe(expected);
+    expect(strip(ogUrl)).toBe(expected);
+    // Page-level openGraph overrides must not drop the share image.
+    await expect(page.locator('meta[property="og:image"]')).toHaveCount(1);
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveCount(1);
+  });
+}
+
+test("projects index has its own title", async ({ page }) => {
+  await page.goto("/projects");
+  await expect(page).toHaveTitle(/^Projects \| /);
+});
+
+test("every project filter returns at least one project", async ({ page }) => {
+  await page.goto("/projects");
+  const group = page.getByRole("group", { name: /filter projects/i });
+  const pills = group.getByRole("button");
+  const count = await pills.count();
+  expect(count).toBeGreaterThan(1);
+  for (let i = 0; i < count; i++) {
+    await pills.nth(i).click();
+    await expect(pills.nth(i)).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator('a[href^="/projects/"]').first()).toBeVisible();
+  }
+});
+
+test("collapsed mobile menu is inert", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const panel = page.locator("#mobile-nav");
+  await expect(panel).toHaveJSProperty("inert", true);
+  await page.getByRole("button", { name: /open menu/i }).click();
+  await expect(panel).toHaveJSProperty("inert", false);
 });
 
 test("header active state marks current page", async ({ page }) => {
