@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, HardHat, ShieldCheck, Truck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { CtaSection } from "@/components/site/cta-section";
+import { HeroVideo } from "@/components/site/hero-video";
 import { Section, SectionHeader } from "@/components/site/section";
 import { projects } from "@/content/projects";
 import { services } from "@/content/services";
@@ -29,17 +30,20 @@ export default function HomePage() {
 function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-concrete-900 text-white">
+      {/* Poster is the video's first frame, so the fade from still to
+          video is seamless (and it's all reduced-motion users ever see). */}
       <Image
-        src="/hero/site-aerial.jpg"
+        src="/hero/canal-hero-poster.jpg"
         alt=""
         fill
         priority
         sizes="100vw"
         className="-z-20 object-cover object-center"
       />
-      {/* Navy scrim keeps the copy legible over the busy aerial photo:
+      <HeroVideo className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
+      {/* Navy scrim keeps the copy legible over the moving jobsite footage:
           heavier on the left where the headline sits, lighter on the right
-          so the jobsite still reads. */}
+          so the work still reads. */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
