@@ -56,9 +56,9 @@ export function AwardsStrip({
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <p className="font-display text-base font-semibold text-concrete-900">
+                <h3 className="font-display text-base font-semibold text-concrete-900">
                   {a.name}
-                </p>
+                </h3>
                 <p className="mt-0.5 text-sm text-concrete-600">{a.detail}</p>
               </div>
             </li>

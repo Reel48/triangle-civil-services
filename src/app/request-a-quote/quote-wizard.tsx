@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useForm, type FieldPath } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -86,6 +86,18 @@ export function QuoteWizard() {
   const step = steps[stepIdx];
   const isLast = stepIdx === steps.length - 1;
 
+  // When the step changes, move focus to the new step's heading so keyboard
+  // and screen-reader users land on (and hear) the new content. Skipped on
+  // initial render (compared against the previous step, which also holds up
+  // under Strict Mode's double effect run) so focus doesn't jump on load.
+  const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+  const prevStepIdx = useRef(stepIdx);
+  useEffect(() => {
+    if (prevStepIdx.current === stepIdx) return;
+    prevStepIdx.current = stepIdx;
+    stepHeadingRef.current?.focus();
+  }, [stepIdx]);
+
   async function onNext() {
     const ok = await trigger(step.fields, { shouldFocus: true });
     if (ok) setStepIdx((i) => Math.min(i + 1, steps.length - 1));
@@ -137,9 +149,14 @@ export function QuoteWizard() {
       <Progress currentIdx={stepIdx} />
 
       <div>
-        <p className="font-display text-xl font-semibold text-concrete-900">
+        <h2
+          ref={stepHeadingRef}
+          tabIndex={-1}
+          aria-describedby="quote-progress"
+          className="font-display scroll-mt-32 text-xl font-semibold text-concrete-900 focus:outline-none"
+        >
           {step.title}
-        </p>
+        </h2>
         <p className="mt-1 text-sm text-concrete-500">{step.description}</p>
       </div>
 
@@ -271,7 +288,7 @@ export function QuoteWizard() {
                 {files.map((f) => (
                   <li key={f.name}>
                     {f.name}{" "}
-                    <span className="text-concrete-400">
+                    <span className="text-concrete-500">
                       ({Math.ceil(f.size / 1024)} KB)
                     </span>
                   </li>
@@ -330,7 +347,7 @@ function Progress({ currentIdx }: { currentIdx: number }) {
   return (
     <div>
       <div className="flex items-center justify-between text-xs font-medium text-concrete-500">
-        <span>
+        <span id="quote-progress">
           Step {currentIdx + 1} of {steps.length}
           <span className="mx-1.5 text-concrete-300">·</span>
           <span className="text-concrete-800">{steps[currentIdx].title}</span>

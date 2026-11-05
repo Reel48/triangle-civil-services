@@ -4,6 +4,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Section } from "@/components/site/section";
 import { roles } from "@/content/careers";
+import { pageMetadata } from "@/lib/metadata";
 import { buildMailto, site } from "@/lib/site";
 import {
   JsonLdScript,
@@ -23,11 +24,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const role = roles.find((r) => r.slug === slug);
   if (!role) return {};
-  return {
+  return pageMetadata({
     title: `${role.title} | Careers`,
     description: role.summary,
-    alternates: { canonical: `${site.url}/careers/${role.slug}` },
-  };
+    path: `/careers/${role.slug}`,
+  });
 }
 
 export default async function RolePage({

@@ -15,19 +15,35 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+// Largest shrink distance across breakpoints (see .site-header in
+// globals.css). Scroll offsets past this don't change the header.
+const MAX_SHRINK_PX = 32;
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Compact the header (and its large logo) once the page scrolls.
+  // Scroll-linked compaction. The header's layout height never changes (a
+  // negative sticky `top` lets it slide up natively, then stick), so the page
+  // below never shifts and the browser never adjusts the scroll position.
+  // This only feeds the scroll offset into a CSS variable that drives
+  // transforms on the logo and bar; it doesn't re-render React.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const header = headerRef.current;
+    if (!header) return;
+    let last = -1;
+    const update = () => {
+      const y = Math.min(Math.max(window.scrollY, 0), MAX_SHRINK_PX);
+      if (y === last) return;
+      last = y;
+      header.style.setProperty("--header-scroll", String(y));
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   // Body scroll lock + Escape to close + focus management while open.
@@ -73,23 +89,22 @@ export function SiteHeader() {
 
   return (
     <header
-      className="sticky top-0 z-40 border-b border-concrete-100 bg-white/90 backdrop-blur"
+      ref={headerRef}
+      className="site-header sticky z-40 border-b border-concrete-100 bg-white/90 backdrop-blur"
       style={{
         paddingTop: "env(safe-area-inset-top)",
         paddingLeft: "env(safe-area-inset-left)",
         paddingRight: "env(safe-area-inset-right)",
       }}
     >
-      <div
-        className={cn(
-          "container-page flex items-center justify-between gap-6 transition-[height] duration-200 ease-out",
-          scrolled ? "h-16 md:h-20" : "h-20 md:h-28",
-        )}
-      >
+      {/* The bar is shifted down as the header compacts, so its empty area
+          can overhang the header's bottom edge; only its children take
+          pointer events, so it never blocks clicks on the page below. */}
+      <div className="site-header-bar container-page pointer-events-none flex h-20 items-center justify-between gap-6 *:pointer-events-auto md:h-28">
         <Link
           href="/"
           aria-label={`${site.name} home`}
-          className="flex shrink-0 items-center"
+          className="site-header-logo flex shrink-0 items-center"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -99,10 +114,7 @@ export function SiteHeader() {
             height={764}
             priority
             unoptimized
-            className={cn(
-              "w-auto transition-[height] duration-200 ease-out",
-              scrolled ? "h-12 md:h-16" : "h-16 md:h-24",
-            )}
+            className="h-16 w-auto md:h-24"
           />
         </Link>
 
@@ -141,11 +153,21 @@ export function SiteHeader() {
       <div
         id="mobile-nav"
         ref={panelRef}
-        aria-hidden={!open}
+        // `inert` (not just aria-hidden) so the collapsed panel's links drop
+        // out of the Tab order as well as the accessibility tree.
+        inert={!open}
+        // Overlays the page (absolute) rather than growing the header, so
+        // opening the menu never changes the header's layout height. If it
+        // did, the page would shift and the browser would adjust the scroll
+        // position, snapping the scroll-linked header mid-open.
         className={cn(
-          "overflow-hidden border-t border-concrete-100 bg-white transition-[max-height,opacity] duration-200 ease-out lg:hidden",
-          open ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0",
+          "absolute inset-x-0 top-full overflow-hidden border-y border-concrete-100 bg-white shadow-lg transition-[max-height,opacity] duration-200 ease-out lg:hidden",
+          open ? "max-h-[560px] opacity-100" : "pointer-events-none max-h-0 opacity-0",
         )}
+        style={{
+          paddingLeft: "env(safe-area-inset-left)",
+          paddingRight: "env(safe-area-inset-right)",
+        }}
       >
         <nav aria-label="Mobile" className="container-page flex flex-col gap-1 py-4">
           {primaryNav.map((item) => {
