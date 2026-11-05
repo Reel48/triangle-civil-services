@@ -25,7 +25,7 @@ export const site = {
       postalCode: "77707",
       country: "US",
     },
-    hours: "Monday–Friday, 8am–6pm CT",
+    hours: "Monday–Friday, 8am–4:30pm CT",
   },
   markets: [
     "Industrial",
